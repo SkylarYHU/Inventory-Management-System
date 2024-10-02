@@ -27,7 +27,7 @@ def product_create_view(request):
             form.save()
             return redirect('product_list')
         # If the form is invalid, it redisplays the form with error messages.
-        return render(request, 'invApp/product_form.html', {"form": form})
+    return render(request, 'invApp/product_form.html', {"form": form})
 
 
 # Read View

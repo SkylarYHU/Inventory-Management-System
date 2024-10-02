@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Inventory Management System{% endblock %}</title>
+    {% comment %} The link to Bootstrap's CSS is included to style the webpage,
+    ensuring a modern and responsive design. {% endcomment %}
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link
+      href="
+    https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css
+    "
+      rel="stylesheet"
+    />
+    <style>
+      body{
+        font-family: 'Roboto', sans-serif; 
+        background-color: #f5f5f5; 
+        color: #333;
+        padding-top: 56px;
+      }
+
+      .navbar{
+        background-color: #347928;
+      }
+
+      .navbar-brand, .nav-link{
+        color: #fff !important
+      }
+
+      .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1); 
+        border-radius: 4px; 
+      }
+
+      .container{
+        margin-top: 20px;
+      }
+
+      .table th, .table td{
+        vertical-align: middle;
+      }
+
+      .thead-custom {
+        background-color: #347928; 
+        color: #fff;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <a href="{% url 'home' %}" class="navbar-brand">Inventory App</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'product_create' %}">Add Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'product_list' %}">Show Product</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <!--The template tag allows child templates to insert their content into this section.-->
+    <div class="container">{% block content %}{% endblock %}</div>
+    <!--These script tags load jQuery and Bootstrap's JavaScript library, which are necessary for Bootstrap components (like modals, dropdowns, etc.) to function properly.-->
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+      integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="
+https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js
+"></script>
+  </body>
+</html>

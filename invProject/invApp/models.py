@@ -13,9 +13,11 @@ class Product(models.Model):
     # A string field for storing the product's Stock Keeping Unit, a unique identifier for each product.
     sku = models.CharField(max_length=50, unique=True)
     price = models.IntegerField()
+    quantity = models.PositiveIntegerField(default=0)
     supplier = models.CharField(max_length=100)
 
     # This method defines how the object will be represented as a string, typically when displaying it in the Django admin or shell. In this case, it returns the product's name.
+
     def __str__(self):
         # eg. When you retrieve and print this product， it shows "laptop".
         return self.name
